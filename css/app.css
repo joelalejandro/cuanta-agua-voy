@@ -1,0 +1,2 @@
+main#app { display: none; }
+main#app.ready { display: block; }

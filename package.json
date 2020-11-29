@@ -1,0 +1,17 @@
+{
+  "name": "cuanta-agua-voy",
+  "version": "0.0.1",
+  "description": "App para mantenerse hidratadxs",
+  "main": "index.js",
+  "repository": "git@github.com:joelalejandro/cuanta-agua-voy.git",
+  "author": "Joel A. Villarreal Bertoldi <joel.a.villarreal@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "devDependencies": {
+    "eslint": "^7.14.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "prettier": "^2.2.1"
+  }
+}
