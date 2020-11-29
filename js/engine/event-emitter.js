@@ -8,9 +8,12 @@ export default class EventEmitter {
   }
 
   trigger(eventName, ...params) {
-    if (!(eventName in this.#events)) {
-      return;
-    }
+    this.#registerEventIfNeeded(eventName);
+
+    const call = {};
+    Error.captureStackTrace(call);
+
+    console.log("Triggered", eventName, "from", call.stack.split("\n").slice(2)[0].trim().substr(3));
 
     this.#events[eventName].forEach((callback) => {
       callback(...params);
