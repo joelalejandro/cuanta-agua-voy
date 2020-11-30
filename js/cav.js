@@ -1,11 +1,12 @@
 import App from "./engine/app.js";
-import WaterService from "./services/water-service.js";
 
 const app = new App({
-  components: ["cav-page"],
+  components: ["cav-page", "cav-progress", "cav-button"],
+  services: ["water-service"],
 });
 
 app.onReady(() => {
-  window.waterLog = new WaterService();
+  console.log("Ready to roll");
 });
+
 app.initialize();
