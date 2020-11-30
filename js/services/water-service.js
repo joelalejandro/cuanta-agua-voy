@@ -1,6 +1,6 @@
 import EventEmitter from "../engine/event-emitter.js";
 
-export default class WaterLogService {
+export default class WaterService {
   #events = new EventEmitter();
   #waterLog = [];
   #options = { goals: [1000, 1500, 2000], dehydrationTimeout: 14400, store: window.localStorage };
@@ -30,6 +30,18 @@ export default class WaterLogService {
     this.#events.trigger("waterDrank");
   }
 
+  onWaterDrank(callback) {
+    this.#events.on("waterDrank", callback);
+  }
+
+  onMilestone(callback) {
+    this.#events.on("milestone", callback);
+  }
+
+  onDayFinished(callback) {
+    this.#events.on("dayFinished", callback);
+  }
+
   get waterDrank() {
     return this.#waterLog[this.#waterLog.length - 1]?.accumulated || 0;
   }
@@ -39,7 +51,7 @@ export default class WaterLogService {
   }
 
   get ultimateGoal() {
-    return this.#goals[this.#goals.length];
+    return this.#goals[this.#goals.length - 1];
   }
 
   #setupGoals() {
