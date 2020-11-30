@@ -13,10 +13,16 @@ export default class EventEmitter {
     const call = {};
     Error.captureStackTrace(call);
 
-    console.log("Triggered", eventName, "from", call.stack.split("\n").slice(2)[0].trim().substr(3));
-
     this.#events[eventName].forEach((callback) => {
       callback(...params);
+      console.log(
+        "Triggered callback",
+        callback,
+        "for",
+        eventName,
+        "from",
+        call.stack.split("\n").slice(2)[0].trim().substr(3)
+      );
     });
   }
 
